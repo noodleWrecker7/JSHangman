@@ -6,8 +6,6 @@ window.onload = function () {
 
 class HangmanGame {
     constructor() {
-        this.chosenWord;
-        this.wordsList;
         HangmanGame.createKeypad();
         this.getWords();
         this.chooseWord();
