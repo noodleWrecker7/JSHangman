@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="hangman.js"></script>
     <link rel="stylesheet" href="../../css/general.css">
     <!--<link rel="stylesheet" href="../css/index.css">-->
     <link rel="stylesheet" href="../../css/pages.css">
     <link rel="stylesheet" href="../../css/hangman.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css"
-          integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/fontawesome.css">
     <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
     <!--Used from https://fontawesome.com under license https://fontawesome.com/license-->
     <title>Games - Hangman</title>
@@ -18,9 +18,7 @@
         <div class="links-bar">
             <a href="../../" class="nav-home nav-button">Home</a>
             <a href="../" class="nav-link nav-button">Projects</a>
-            <!--<a href="" class="nav-link nav-button">Blog</a>
-            <a href="" class="nav-link nav-button">Donate</a>
-            <a href="" class="nav-link nav-button">Contact</a>-->
+            <a href="https://paypal.me/noodlewrecker" class="nav-link nav-button">Donate</a>
         </div>
         <?php
         $socialBarResponse = file_get_contents("../../../hidden/social-bar.html");
@@ -32,22 +30,28 @@
         Hangman
     </h1>
     <h2 class="sub-heading">
-        Alpha v1
+        Release v1
     </h2>
 </header>
 
 <body>
-<div class="page-chunk scoresDef" style="background-color: whitesmoke">
-    <p class="score" id="wordDisplay"></p>
-</div>
-<div class="page-chunk canvasContainer">
-    <canvas id="gameCanvas" width="200" height="300"></canvas>
-    <script src="hangman.js"></script>
-</div>
-<div class="page-chunk" style="background-color: whitesmoke">
-    <div class="keypad" id="keypad">
 
+<div class="page-chunk gameContainer">
+    <button class="reset" onclick="javascript:game = new HangmanGame();">Reset</button>
+    <img src="img/Hangman-0.png" id="hangman-image">
+    <p id="status-message"></p>
+    <div class="word-container" id="word-container">
+    </div>
+</div>
+<div class="page-chunk missed-letters" style="background-color: whitesmoke">
+    <p style='font-family: "Montserrat", sans-serif; font-size: large'>Missed letters:&nbsp</p><p id="missed-letters" style='font-family: "Montserrat", sans-serif; font-size: large'></p>
+</div>
+<div class="page-chunk">
+    <div class="keypad" id="keypad">
     </div>
 </div>
 </body>
+<div class="foot">
+    <p class="credit">Designed by Adam Hodgkinson</p>
+</div>
 </html>
