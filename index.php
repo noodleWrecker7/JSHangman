@@ -30,15 +30,16 @@
         Hangman
     </h1>
     <h2 class="sub-heading">
-        Release v1
+        Release v1<br>
+        <a href="extreme.php">Click here for extreme mode</a>
     </h2>
 </header>
 
 <body>
 
 <div class="page-chunk gameContainer">
-    <button class="reset" onclick="javascript:game = new HangmanGame();">Reset</button>
-    <img src="img/Hangman-0.png" id="hangman-image">
+    <button class="reset" onclick="game = new HangmanGame();">Reset</button>
+    <img alt="image of hangman" src="img/Hangman-0.png" id="hangman-image">
     <p id="status-message"></p>
     <div class="word-container" id="word-container">
     </div>

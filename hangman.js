@@ -1,5 +1,5 @@
-var game;
-var wordsList;
+let game;
+let wordsList;
 
 window.onload = function () {
     let x = new XMLHttpRequest();
@@ -18,15 +18,16 @@ class HangmanGame {
         this.stage = 0;
         HangmanGame.createKeypad();
         this.chooseWord();
-        this.createWordHtml(this.chosenWord)
+        this.createWordHtml(this.chosenWord);
         document.getElementById("missed-letters").innerText = "";
-        document.getElementById("status-message").innerText = ""
+        document.getElementById("status-message").innerText = "";
         document.getElementById("hangman-image").src = "img/Hangman-0.png";
     }
 
     chooseWord() {
         let n = Math.floor(Math.random() * wordsList.length);
         this.chosenWord = wordsList[n];
+        this.chosenWord = this.chosenWord.replace(" ", "");
         this.wordDiscoveredArray = [];
         for (let i = 0; i < this.chosenWord.length; i++) {
             this.wordDiscoveredArray.push(" ");
@@ -37,7 +38,7 @@ class HangmanGame {
     nextStage() {
         this.stage++;
         document.getElementById("hangman-image").src = "img/Hangman-" + this.stage + ".png";
-        if (this.stage >= 6) {
+        if (this.stage >= 8) {
             this.gameOver();
         }
     }
